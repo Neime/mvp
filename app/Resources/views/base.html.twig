@@ -12,7 +12,12 @@
         {% endblock %}
     </head>
     <body>
-
+        {% if app.user %}
+            Connected with {{ app.user.username }} - 
+            <a href="{{ path('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ path('login') }}">Login</a>
+        {% endif %}
         <div id="wrapper">
             <div id="container">
             {% block body %}{% endblock %}
