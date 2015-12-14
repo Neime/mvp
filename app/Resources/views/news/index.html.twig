@@ -1,22 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <h1>News</h1>
+    <h1>News list</h1>
 
-            {% if news|length > 0 %}
-            <ul>
-            	{% for new in news %}
-            		<li>
-            			<strong>{{ new.firstname }}</strong> - <span>{{ new.date|date('Y-m-d') }}</span>
-            			<p>{{ new.text }}</p>
-            		</li>
-            	{% endfor %}
-            </ul>
-            {% else %}
-            No result
-        	{% endif %}
-        </div>
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Text</th>
+                <th>Date</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for news in news %}
+            <tr>
+                <td><a href="{{ path('news_show', { 'id': news.id }) }}">{{ news.firstname }}</a></td>
+                <td>{{ news.lastname }}</td>
+                <td>{{ news.text }}</td>
+                <td>{% if news.date %}{{ news.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ news.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('news_show', { 'id': news.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('news_edit', { 'id': news.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('news_new') }}">Create a new entry</a>
+        </li>
+    </ul>
 {% endblock %}
