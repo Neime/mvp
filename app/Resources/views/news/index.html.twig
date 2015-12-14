@@ -6,11 +6,12 @@
     <table>
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Firstname</th>
                 <th>Lastname</th>
                 <th>Text</th>
                 <th>Date</th>
-                <th>Id</th>
+                <th>Comments</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,12 +24,22 @@
                 <td>{% if news.date %}{{ news.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ news.id }}</td>
                 <td>
+                    {% if news.comments|length > 0 %}
+                        {% for comment in news.comments %}
+                        <p>{{ comment.text }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </td>
+                <td>
                     <ul>
                         <li>
                             <a href="{{ path('news_show', { 'id': news.id }) }}">show</a>
                         </li>
                         <li>
                             <a href="{{ path('news_edit', { 'id': news.id }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('comment_new', { 'id': news.id }) }}">Create a comment</a>
                         </li>
                     </ul>
                 </td>

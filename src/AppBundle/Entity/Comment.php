@@ -2,13 +2,10 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-
 /**
- * News
+ * Comment
  */
-class News
+class Comment
 {
     /**
      * @var int
@@ -16,24 +13,14 @@ class News
     private $id;
 
     /**
-     * @var string
+     * @var News
      */
-    private $firstname;
-
-    /**
-     * @var string
-     */
-    private $lastname;
+    private $news;
 
     /**
      * @var string
      */
     private $text;
-
-    /**
-     * @var ArrayCollection
-     */
-    private $comments;
 
     /**
      * @var \DateTime
@@ -43,7 +30,6 @@ class News
     public function __construct()
     {
         $this->date = new \DateTime();
-        $this->comments = new ArrayCollection();
     }
 
     /**
@@ -57,51 +43,27 @@ class News
     }
 
     /**
-     * Set firstname
+     * Set news
      *
-     * @param string $firstname
+     * @param News $news
      *
-     * @return News
+     * @return Comment
      */
-    public function setFirstname($firstname)
+    public function setNews(News $news)
     {
-        $this->firstname = $firstname;
+        $this->news = $news;
 
         return $this;
     }
 
     /**
-     * Get firstname
+     * Get news
      *
      * @return string
      */
-    public function getFirstname()
+    public function getNews()
     {
-        return $this->firstname;
-    }
-
-    /**
-     * Set lastname
-     *
-     * @param string $lastname
-     *
-     * @return News
-     */
-    public function setLastname($lastname)
-    {
-        $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    /**
-     * Get lastname
-     *
-     * @return string
-     */
-    public function getLastname()
-    {
-        return $this->lastname;
+        return $this->news;
     }
 
     /**
@@ -109,7 +71,7 @@ class News
      *
      * @param string $text
      *
-     * @return News
+     * @return Comment
      */
     public function setText($text)
     {
@@ -133,7 +95,7 @@ class News
      *
      * @param \DateTime $date
      *
-     * @return News
+     * @return Comment
      */
     public function setDate($date)
     {
@@ -151,12 +113,5 @@ class News
     {
         return $this->date;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getComments()
-    {
-        return $this->comments;
-    }
 }
+
