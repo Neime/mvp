@@ -12,6 +12,12 @@
         {% endblock %}
     </head>
     <body>
+        {% for flash_message in app.session.flashbag.get('success') %}
+            <div class="alert alert-success">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+
         {% if app.user %}
             Connected with {{ app.user.username }} - 
             <a href="{{ path('logout') }}">Logout</a>

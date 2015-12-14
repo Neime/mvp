@@ -24,6 +24,7 @@
                 <td>{% if news.date %}{{ news.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ news.id }}</td>
                 <td>
+                    <strong>Number of comments : {{ news.numberComment }}</strong>
                     {% if news.comments|length > 0 %}
                         {% for comment in news.comments %}
                         <p>{{ comment.text }}</p>

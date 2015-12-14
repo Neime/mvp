@@ -31,6 +31,11 @@ class News
     private $text;
 
     /**
+     * @var integer
+     */
+    private $numberComment;
+
+    /**
      * @var ArrayCollection
      */
     private $comments;
@@ -158,5 +163,34 @@ class News
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * Set numberComment
+     *
+     * @param string $numberComment
+     *
+     * @return News
+     */
+    public function setNumberComment($numberComment)
+    {
+        $this->numberComment = $numberComment;
+
+        return $this;
+    }
+
+    /**
+     * Get numberComment
+     *
+     * @return string
+     */
+    public function getNumberComment()
+    {
+        return $this->numberComment;
+    }
+
+    public function increaseNumberComment()
+    {
+        $this->numberComment++;
     }
 }

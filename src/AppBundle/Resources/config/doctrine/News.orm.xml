@@ -15,5 +15,6 @@
     <field name="lastname" type="string" column="lastname" length="255"/>
     <field name="text" type="string" column="text" length="255"/>
     <field name="date" type="datetime" column="date"/>
+    <field name="numberComment" column="number_comment" type="integer" nullable="true"/>
   </entity>
 </doctrine-mapping>
