@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <h1>News</h1>
+
+            {% if news|length > 0 %}
+            <ul>
+            	{% for new in news %}
+            		<li>
+            			<strong>{{ new.firstname }}</strong> - <span>{{ new.date|date('Y-m-d') }}</span>
+            			<p>{{ new.text }}</p>
+            		</li>
+            	{% endfor %}
+            </ul>
+            {% else %}
+            No result
+        	{% endif %}
+        </div>
+    </div>
+{% endblock %}

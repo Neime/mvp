@@ -2,9 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}MVP{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" type="text/css" />
+            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" type="text/css" />
+            <link href="{{ asset('css/common.css') }}" rel="stylesheet" />
+        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
