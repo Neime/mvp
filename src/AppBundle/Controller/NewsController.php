@@ -42,6 +42,7 @@ class NewsController extends Controller
     public function newAction(Request $request)
     {
         $news = new News();
+        
         $form = $this->createForm(get_class(new NewsType()), $news);
         $form->handleRequest($request);
 

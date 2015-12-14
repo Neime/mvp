@@ -28,3 +28,6 @@ security:
             logout:
                 path:   logout
                 target: /
+
+    access_control:
+        - { path: "/admin.*", role: ROLE_ADMIN }
